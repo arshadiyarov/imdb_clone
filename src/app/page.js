@@ -1,5 +1,7 @@
 const API_KEY = process.env.API_KEY;
 
+import Results from "@/components/Results";
+
 export default async function Home({ searchParams }) {
   const genre = searchParams.genre || "fetchTrending";
   const res = await fetch(
@@ -15,5 +17,9 @@ export default async function Home({ searchParams }) {
   const results = data.results;
   console.log(results);
 
-  return <div>Home</div>;
+  return (
+    <div>
+      <Results results={results} />
+    </div>
+  );
 }
