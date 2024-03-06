@@ -4,7 +4,6 @@ import Image from "next/image";
 
 import { FiThumbsUp } from "react-icons/fi";
 import { LuDot } from "react-icons/lu";
-import { HiOutlineDotsVertical } from "react-icons/hi";
 
 const Card = ({ result }) => {
   return (
