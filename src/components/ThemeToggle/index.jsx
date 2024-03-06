@@ -1,6 +1,6 @@
 "use client";
 
-import { MdLightMode, MdDarkMode } from "react-icons/md";
+import { GoSun, GoMoon } from "react-icons/go";
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -13,16 +13,20 @@ const ThemeToggle = () => {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div>
+    <div
+      className={
+        "rounded-full p-2 hover:bg-secondLight md:dark:hover:bg-dark md:hover:bg-white dark:hover:bg-thirdDark"
+      }
+    >
       {mounted &&
         (currentTheme === "dark" ? (
-          <MdLightMode
-            className={"text-xl cursor-pointer hover:text-amber-500"}
+          <GoSun
+            className={"text-2xl cursor-pointer md:hover:text-amber-500"}
             onClick={() => setTheme("light")}
           />
         ) : (
-          <MdDarkMode
-            className={"text-xl cursor-pointer hover:text-amber-500"}
+          <GoMoon
+            className={"text-2xl cursor-pointer md:hover:text-amber-500"}
             onClick={() => setTheme("dark")}
           />
         ))}

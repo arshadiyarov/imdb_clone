@@ -15,6 +15,9 @@ module.exports = {
       colors: {
         dark: "#0F0F0F",
         secondDark: "#222222",
+        thirdDark: "#3A3B3B",
+        light: "#F2F2F2",
+        secondLight: "#F8F8F8",
         secondText: "#979797",
       },
     },
