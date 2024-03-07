@@ -21,10 +21,10 @@ const Header = () => {
   };
 
   return (
-    <Context.Provider value={[searchToggle]}>
+    <Context.Provider value={[searchToggle, handleSearchToggle]}>
       <div
         className={
-          "flex justify-between items-center p-3 max-w-6xl mx-auto gap-5 relative"
+          "flex justify-between items-center p-3 max-w-6xl mx-auto gap-4 relative"
         }
       >
         <div className={"flex items-center gap-4"}>
@@ -38,7 +38,7 @@ const Header = () => {
             <span className={"text-xl hidden sm:inline"}>Clone</span>
           </Link>
           {!searchToggle && (
-            <button className={"pl-4 text-xl"}>
+            <button className={"pl-2 text-xl"}>
               <FaArrowLeftLong onClick={() => setSearchToggle(true)} />
             </button>
           )}

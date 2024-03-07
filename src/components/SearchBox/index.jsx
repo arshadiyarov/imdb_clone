@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Context } from "@/components/Header";
 
 import { IoIosSearch } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
 
 const SearchBox = () => {
   const [search, setSearch] = useState("");
@@ -15,13 +16,16 @@ const SearchBox = () => {
   const [searchToggle] = useContext(Context);
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearch("");
     router.push(`/search/${search}`);
+  };
+
+  const handleClearSearch = () => {
+    setSearch("");
   };
 
   return (
     <form
-      className={`${!searchToggle ? "absolute right-16 flex" : "hidden w-full md:flex "} items-center justify-between gap-2 border-secondText dark:bg-dark dark:border-thirdDark border pl-4 rounded-full`}
+      className={`${!searchToggle ? "absolute right-0 flex " : "hidden w-full md:flex "} max-w-xl relative items-center justify-between gap-2 border-secondText dark:bg-dark dark:border-thirdDark border pl-4 rounded-full`}
       onSubmit={(e) => handleSubmit(e)}
     >
       <input
@@ -33,6 +37,18 @@ const SearchBox = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+
+      {!!search && (
+        <button
+          type={"button"}
+          className={
+            "absolute right-16 p-3 rounded-full hover:bg-secondText dark:hover:bg-thirdDark bg-opacity-30"
+          }
+          onClick={() => handleClearSearch()}
+        >
+          <RxCross1 />
+        </button>
+      )}
 
       <button
         type={"submit"}
